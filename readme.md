@@ -6,6 +6,8 @@ Hi!
 
 Great that you're interested in this exercise! Thanks a lot for making it. The exercise is about making a minimal search engine of medoucine with Laravel and VueJS.
 
+![Image](https://github.com/medoucine/fullstack-recruitment-test/blob/master/result.gif)
+
 What you'll have to do:
 - Design integration with SASS and Bootstrap 4
 - A VueJS template and script
@@ -37,5 +39,5 @@ To complete this test you need to fork this repo. When you're done you can push 
 Send us back your work!
 
 
-
+![Image](https://github.com/medoucine/fullstack-recruitment-test/blob/master/result.png)
 
