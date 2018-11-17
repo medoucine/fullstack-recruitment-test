@@ -15,7 +15,6 @@
 Homestead.json
 Homestead.yaml
 npm-debug.log
-.env
 .env.dusk
 .env.dusk.local
 /public/android-chrome-192x192.png
