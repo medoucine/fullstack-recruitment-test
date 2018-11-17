@@ -33,6 +33,7 @@ To complete this test you need to fork this repo. When you're done you can push 
 - Run a server `php artisan serve`
 - Run `npm run watch` or `npm run watch-poll` (see packages.json for full list of commands) 
 - Use the json file as database located in `./database/db.json` which represent list of doctors
+- tips: edit `routes/web.php`, `app/Http/Controller.php` and files located in `resources/`
 
 ## Finish
 
