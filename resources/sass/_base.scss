@@ -1,0 +1,41 @@
+body {
+    background: #fff;
+}
+
+header {
+    background: #f0f0f0;
+    padding: 15px;
+
+    button {
+        background: $blue;
+        color: #fff;
+    }
+
+    select, button {
+        border-radius: 0 !important;
+    }
+
+    .container {
+        padding: 30px 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+}
+
+#therapists {
+    padding: 40px;
+    background: #fcf9f9;
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+footer {
+    border-top: 1px solid #eee;
+    padding: 30px;
+    background: #fff;
+}

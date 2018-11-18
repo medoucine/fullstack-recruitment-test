@@ -19,9 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // city API
 Route::get('/city', 'Controller@getCities');
-Route::get('/city/{city}/therapist', 'Controller@getTherapistsByCity');
-Route::get('/city/{city}/practice/{practice}/therapist', 'Controller@getTherapistsByCityAndPractice');
-
-// practice API
-Route::get('/practice', 'Controller@getPracticies');
-Route::get('/practice/{practice}/therapist', 'Controller@getTherapistsByPractice');
+Route::get('/city/{city}/practice', 'Controller@getCityPractices');
+Route::get('/city/{city}/practice/{practice}/therapist', 'Controller@getCityPracticeTherapists');

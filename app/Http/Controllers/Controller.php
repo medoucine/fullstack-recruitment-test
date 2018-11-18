@@ -31,6 +31,12 @@ class Controller extends BaseController
         return $therapists;
     }
 
+    private function returnResponse(array $array)
+    {
+        return response(json_encode($array), 200)
+            ->header('Content-Type', 'application/json');
+    }
+
     public function getCities()
     {
         $therapists = $this->importTherapists();
@@ -39,59 +45,40 @@ class Controller extends BaseController
             if (!empty($therapist['city']) && !in_array($therapist['city'], $cities))
                 $cities[] = $therapist['city'];
         sort($cities);
-        // return result as JSON
-        $therapists = json_encode($cities);
-        return response($therapists, 200)
-            ->header('Content-Type', 'application/json');
+        return $this->returnResponse($cities);
     }
 
-    public function getPracticies()
+    public function getCityPractices(string $city)
     {
         $therapists = $this->importTherapists();
         $practices = [];
         foreach ($therapists as $therapist)
-            if (!empty($therapist['practices']) && is_array($therapist['practices']))
+            if (!empty($therapist['city'])
+                && $therapist['city'] === $city
+                && !empty($therapist['practices'])
+                && is_array($therapist['practices']))
                 foreach ($therapist['practices'] as $practice)
-                    if (!in_array($practice, $practices))
+                    if (!in_array($practice, $practices, true))
                         $practices[] = $practice;
         sort($practices);
-        // return result as JSON
-        $therapists = json_encode($practices);
-        return response($therapists, 200)
-            ->header('Content-Type', 'application/json');
+        return $this->returnResponse($practices);
     }
 
-    public function getTherapistsByCity(string $city)
-    {
-        return $this->getTherapistsByCityAndPractice($city, null);
-    }
-
-    public function getTherapistsByPractice(string $practice)
-    {
-        return $this->getTherapistsByCityAndPractice(null, $practice);
-    }
-
-    public function getTherapistsByCityAndPractice(?string $city, ?string $practice)
+    public function getCityPracticeTherapists(string $city, string $practice)
     {
         $therapists = $this->importTherapists();
         // filter therapists by city and practice
         foreach ($therapists as $key => $therapist) {
             // filter by city
-            if (!is_null($city)) {
-                if (empty($therapist['city']) || $therapist['city'] !== $city)
-                    unset($therapists[$key]);
-            }
+            if (empty($therapist['city']) || $therapist['city'] !== $city)
+                unset($therapists[$key]);
             // filter by practice
-            if (!is_null($practice)) {
-                if (empty($therapist['practices'])
-                    || !is_array($therapist['practices'])
-                    || !in_array($practice, $therapist['practices']))
-                    unset($therapists[$key]);
-            }
+            if (empty($therapist['practices'])
+                || !is_array($therapist['practices'])
+                || !in_array($practice, $therapist['practices']))
+                unset($therapists[$key]);
         }
-        // return result as JSON
-        $therapists = json_encode($therapists);
-        return response($therapists, 200)
-            ->header('Content-Type', 'application/json');
+        $therapists = array_values($therapists);
+        return $this->returnResponse($therapists);
     }
 }

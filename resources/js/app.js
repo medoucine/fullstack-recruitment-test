@@ -18,6 +18,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('main-component', require('./components/MainComponent.vue'));
+Vue.component('therapist-component', require('./components/TherapistComponent.vue'));
+Vue.component('city-practices-component', require('./components/CityPracticesComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 
