@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// city API
+Route::get('/city', 'Controller@getCities');
+Route::get('/city/{city}/therapist', 'Controller@getTherapistsByCity');
+Route::get('/city/{city}/practice/{practice}/therapist', 'Controller@getTherapistsByCityAndPractice');
+
+// practice API
+Route::get('/practice', 'Controller@getPracticies');
+Route::get('/practice/{practice}/therapist', 'Controller@getTherapistsByPractice');
