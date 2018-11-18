@@ -24,3 +24,4 @@ npm-debug.log
 /public/safari-pinned-tab.svg
 yarn-error.log
 faviconData.json
+/.env

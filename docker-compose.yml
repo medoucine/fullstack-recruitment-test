@@ -1,0 +1,30 @@
+version: '3.5'
+
+volumes:
+  mysql_volume:
+  mysql_volume_binlog:
+  redis_volume:
+
+networks:
+  reverse-proxy:
+    name: ${COMPOSE_REVERSE_PROXY_NETWORK}
+    external: true
+  back:
+    internal: true
+
+services:
+
+  app:
+    container_name: ${COMPOSE_PROJECT_NAME}_app
+    build: docker/webserver
+    image: amblab/app:${APP_ENV}
+    restart: ${COMPOSE_RESTART}
+    volumes:
+    - ./:/var/www/medoucine/
+    env_file:
+    - .env
+    environment:
+    - VIRTUAL_HOST=${APP_HOST}
+    networks:
+    - back
+    - reverse-proxy
