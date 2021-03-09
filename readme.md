@@ -1,3 +1,4 @@
+
 <p align="center"><img src="https://www.medoucine.com/images/logos/logo.svg" width="350"></p>
 
 ## Fullstack developper test
@@ -8,7 +9,7 @@ Great that you're interested in this exercise! Thanks a lot for making it. The e
 
 ![Image](https://github.com/medoucine/fullstack-recruitment-test/blob/master/result.gif)
 
-What you'll have to do:
+### What you'll have to do:
 - Allow user to search therapists by city and practice with the form
 - Allow user to search therapists by clicking on links
 - Cities, practices and search links have to be generated from therapists list (./database/db.json)
@@ -17,8 +18,30 @@ What you'll have to do:
 - Make all user interaction with VueJS (./resource/js/component/MainComponent.vue)
 - Make a quick API with Laravel 5.7 (which will serve cities, practices, ..)
 
+#### Technical expectations
+**Front- JS**
 
-To complete this test you need to fork this repo. When you're done you can push your changes to your own repo (and let us know where to find it ofcourse).
+At least 1 component must be tested, with at least 2 unit tests.
+
+You'll have to explain:
+- your decisions regarding HTML/CSS
+- your decisions regarding component structure
+
+**Back - PHP**
+
+You'll have to explain:
+- your PHP architecture, How did you manage service responsability ?
+
+You'll have to unit test codes responsible for getting the search results, according to specs
+
+**Ops - Bash (Bonus)**
+
+Write a deployment bash script (install, test, build, serve)
+It should fail if one or more commands fails.
+
+
+
+To complete this test you need to download (NOT fork) this repo. When you're done you can push your changes to your own repo (and let us know where to find it of course).
 
 ## Prerequisites
 - PHP7.x
@@ -37,7 +60,6 @@ To complete this test you need to fork this repo. When you're done you can push 
 - Run a server with `php artisan serve`
 - Run auto compilation with `npm run watch` or `npm run watch-poll` (see packages.json for full list of commands) 
 - Use the json file as database located in `./database/db.json` which represent list of therapists
-- tips: you'll have to edit `routes/web.php`, `app/Http/Controller.php` and files located in `resources/`
 
 ## Finish
 
